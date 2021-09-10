@@ -6,7 +6,7 @@ int		main(void)
 	int		i;
 	int		l;
 	int		prime;
-	int		arr[100];
+	int		arr[101];
 
 	scanf("%d", &N);
 	i = 0;
@@ -16,7 +16,7 @@ int		main(void)
 	while (--i >= 0)
 	{
 		if (arr[i] <= 1)
-			break;
+			continue;
 		l = 2;
 		while (arr[i] >= l * l)
 			l++;
@@ -29,6 +29,6 @@ int		main(void)
 		if (l == 1 || arr[i] == 2)
 			prime++;
 	}
-	printf("%d\n", prime);
+	printf("%d", prime);
 	return (0);
 }
