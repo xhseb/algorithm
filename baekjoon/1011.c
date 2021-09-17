@@ -25,6 +25,7 @@ int		main(void)
 			printf("%d\n", move + 1);
 		else if (move * 2 >= dis)
 			printf("%d\n", move + 2);
+		//다른 조건이 더 필요.. 생각해보기
 	}
 	return (0);
 }
