@@ -23,6 +23,7 @@ int     main(void)
         {
             tmp = 0;
             color = board[i][l];
+            printf("color %c\n", color);
             for (int x = 0; x < 8; x++)
             {
                 for (int y = 0; y < 8; y++)
@@ -30,12 +31,18 @@ int     main(void)
                     if (x % 2 == y % 2)
                     {
                         if (board[i + x][l + y] != color)
+                        {
+                            printf("color%c != board[%d][%d]%c\n", color, i+x, l+y, board[i+x][l+y]);
                             tmp++;
+                        }
                     }
                     else
                     {
                         if (board[i + x][l + y] == color)
+                        {
+                            printf("color%c == board[%d][%d]%c\n", color, i+x, l+y, board[i+x][l+y]);
                             tmp++;
+                        }
                     }
                 }
             }
