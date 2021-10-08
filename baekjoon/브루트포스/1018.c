@@ -16,6 +16,7 @@ int     main(void)
         if (i != N - 1)
             scanf("\n");
     }
+
     cnt = 64;
     for (int i = 0; i < N - 7; i++)
     {
