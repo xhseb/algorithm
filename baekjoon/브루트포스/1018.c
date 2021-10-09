@@ -3,7 +3,8 @@
 int     main(void)
 {
     int     N, M;
-    int     tmp;
+    int     tmp_A;
+	int		tmp_B;
     int     cnt;
     int     color;
     char     board[50][50];
@@ -16,15 +17,14 @@ int     main(void)
         if (i != N - 1)
             scanf("\n");
     }
-
-    cnt = 64;
+	cnt = 64;
     for (int i = 0; i < N - 7; i++)
     {
-        for (int l = 0; l < N - 7; l++)
+        for (int l = 0; l < M - 7; l++)
         {
-            tmp = 0;
+            tmp_A = 0;
+			tmp_B = 0;
             color = board[i][l];
-            printf("color %c\n", color);
             for (int x = 0; x < 8; x++)
             {
                 for (int y = 0; y < 8; y++)
@@ -32,24 +32,23 @@ int     main(void)
                     if (x % 2 == y % 2)
                     {
                         if (board[i + x][l + y] != color)
-                        {
-                            printf("color%c != board[%d][%d]%c\n", color, i+x, l+y, board[i+x][l+y]);
-                            tmp++;
-                        }
+                            tmp_A++;
+						else
+							tmp_B++;
                     }
                     else
                     {
                         if (board[i + x][l + y] == color)
-                        {
-                            printf("color%c == board[%d][%d]%c\n", color, i+x, l+y, board[i+x][l+y]);
-                            tmp++;
-                        }
+                            tmp_A++;
+						else
+							tmp_B++;
                     }
                 }
             }
-            printf("tmp : %d\n", tmp);
-            if (tmp < cnt)
-                cnt = tmp;
+            if (tmp_A < tmp_B)
+                cnt = cnt < tmp_A ? cnt : tmp_A;
+			else
+				cnt = cnt < tmp_B ? cnt : tmp_B;
         }
     }
     printf("%d", cnt);
