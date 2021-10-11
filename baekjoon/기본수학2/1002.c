@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 
 int		main(void)
 {
@@ -16,9 +17,13 @@ int		main(void)
 		len = sqrt(pow((x1 - x2), 2) + pow((y1 - y2), 2));
 		if (len == 0 && r1 == r2)
 			printf("-1\n");
-		else if (abs(r1 - r2) > len || r1 + r1 > len)
+		else if (r1 + r2 < len)
 			printf("0\n");
-		else if (abs(r1 - r2) == len || len == r1 + r2)
+		else if (abs(r1 - r2) > len)
+			printf("0\n");
+		else if (len == (r1 + r2))
+			printf("1\n");
+		else if (len == abs(r1 - r2))
 			printf("1\n");
 		else
 			printf("2\n");
