@@ -1,61 +1,42 @@
-#include <stdio.h>
+# include <stdio.h>
+# include <math.h>
 
-void	star(int x, int y, int N)
+void	star(char **arr, int idx)
 {
 	int		i;
 	int		j;
-	int		flag;
 
-	if (x < N && y < N)
+	i = -1;
+	while (++i < idx)
 	{
-		i = -1;
-		flag = 0;
-		if ((x>= N / 3 && x < N / 3 * 2) && (y>= N / 3 && y < N / 3 * 2))
-		{
-			flag = 1;
-			printf(" ");
-			star(++x, y, N);
-		}
-		else
-		{
-			while (++i < N / 3)
-			{
-				j = -1;
-				while (++j < N / 3)
-				{
-					if ((x == 1 + 3 * i && y == 1 + 3 * j)/* || ((x>= i && x < 3 * i) && (y>= j && y < 3 * j))*/)
-					{
-						printf(" ");
-						flag = 1;
-						break;
-						star(++x, y, N);
-					}
-				}
-				if (flag == 1)
-					break;
-			}
-			if (flag == 0)
-				printf("*");
-			star(++x, y, N);
-		}
-	}
-	else if (x >= N && y < N)
-	{
-		x = 0;
-		y++;
-		printf("\n");
-		star(x, y, N);
-	}
-	else if (y >= N)
-		return ;
-	return ;
+		j = -1;
+		while (++j < idx)
+			arr[i][j] = '*';
+	} 
 }
-
-int main(void)
+void	pivot(int n, int cnt)
 {
+	if (n > 0)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				Blank((int)pow(3, cnt) + i * (int)pow(3, cnt + 1)),
+					(int)pow(3, cnt) + j * (int)pow(3, cnt + 1), cnt)
+			}
+		}
+		pivot(n / 3, cnt + 1);
+			}
+		}
+	}
+}
+int		main(void)
+{
+	char 	arr[2187][2187];
 	int		N;
-
+	
 	scanf("%d", &N);
-	star(0, 0, N);
-	return (0);
+	star(arr, N);
+	blank();
 }
