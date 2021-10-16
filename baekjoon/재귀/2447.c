@@ -14,6 +14,9 @@ void	star(char **arr, int idx)
 			arr[i][j] = '*';
 	} 
 }
+
+
+
 void	pivot(int n, int cnt)
 {
 	if (n > 0)
@@ -23,7 +26,7 @@ void	pivot(int n, int cnt)
 			for (int j = 0; j < n; j++)
 			{
 				Blank((int)pow(3, cnt) + i * (int)pow(3, cnt + 1)),
-					(int)pow(3, cnt) + j * (int)pow(3, cnt + 1), cnt)
+					(int)pow(3, cnt) + j * (int)pow(3, cnt + 1), cnt);
 			}
 		}
 		pivot(n / 3, cnt + 1);
