@@ -12,4 +12,5 @@ int     main(void)
 
     scanf("%d %d", &max, &dep);
     func(max, 1, dep, 0);
+
 }
